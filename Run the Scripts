@@ -1,0 +1,3 @@
+After editing the script with the correct URL and HTML tags, run the script:
+
+python scrape_contacts.py
