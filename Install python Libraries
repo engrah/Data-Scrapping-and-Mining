@@ -1,0 +1,5 @@
+# HERE WE USE 2 PYTHON LAIBRARIES  beautifulsoup4, pandas
+Install Python LibrariesEnsure you have Python installed. Then, install the necessary libraries using 
+Python code:
+------------
+pip install requests beautifulsoup4 pandas
