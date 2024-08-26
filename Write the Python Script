@@ -1,0 +1,44 @@
+Write the Python Script
+
+create the scrape_contacts.py file and modify it to suit your target website. Here’s a template to get you started:
+
+
+import requests
+from bs4 import BeautifulSoup
+import pandas as pd
+
+# URL of the webpage to scrape
+url = 'https://www.example.com/directory'  # Replace with the actual URL
+
+# Send a GET request to the website
+response = requests.get(url)
+
+# Check if the request was successful
+if response.status_code == 200:
+    # Parse the HTML content
+    soup = BeautifulSoup(response.text, 'html.parser')
+    
+    # Lists to store the scraped data
+    names = []
+    emails = []
+    
+    # Extract data from the HTML
+    for item in soup.find_all('div', class_='contact-info'):  # Adjust based on HTML structure
+        name = item.find('h2', class_='name').text.strip()
+        email = item.find('a', class_='email').text.strip()
+        
+        names.append(name)
+        emails.append(email)
+    
+    # Create a DataFrame
+    df = pd.DataFrame({
+        'Name': names,
+        'Email': emails
+    })
+    
+    # Save the DataFrame to a CSV file
+    df.to_csv('contacts.csv', index=False)
+    
+    print('Data saved to contacts.csv')
+else:
+    print(f'Failed to retrieve the page. Status code: {response.status_code}')
