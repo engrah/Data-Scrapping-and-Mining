@@ -2,7 +2,7 @@ Write the Python Script
 
 create the scrape_contacts.py file and modify it to suit your target website. Here’s a template to get you started:
 
-
+# MAIN CODE STARTED
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
